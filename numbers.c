@@ -17,18 +17,14 @@ void print_status_of_operation(Status isDone, List_ptr list) {
   if(isDone) {
     printf("operation performed successfully\n");
     display(list);
+    printf("\n");
     return;
   }
   printf("operation can't perform\n");
 }
 
-void perform_operation(int option) {
-  List_ptr list = create_list();
-  int number;
+void perform_operation(int option, List_ptr list, int number) {
   Status isDone;
-
-  printf("Enter the number\n");
-  scanf("%d", &number);
 
   switch (option)
   {
@@ -44,10 +40,22 @@ void perform_operation(int option) {
   }
 }
 
+
 int main(void) {
   char option;
+  List_ptr list = create_list();
+  int number;
+
   print_menu();
-  scanf("%c", &option);
-  perform_operation(option);
+  scanf(" %c", &option);
+
+  while (option != 'm') {
+    printf("Enter the number\n");
+    scanf("%d", &number);
+    perform_operation(option, list, number);
+    print_menu();
+    scanf(" %c", &option);
+  }
+
   return 0;
 } 
