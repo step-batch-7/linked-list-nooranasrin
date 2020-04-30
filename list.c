@@ -109,6 +109,11 @@ Status add_unique(List_ptr list, int value) {
   return add_to_end(list, value);
 }
 
+Status remove_from_start(List_ptr list) {
+  list->head = list->head->next;
+  return Success;
+}
+
 void display(List_ptr list) {
   Node_ptr pWalk = list->head;
 

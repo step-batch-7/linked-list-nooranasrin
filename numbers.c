@@ -33,33 +33,35 @@ void perform_operation(int option, List_ptr list) {
       printf("Enter the number to insert at the end of the list\n");
       scanf("%d", &number);
       isDone = add_to_end(list, number);
-      print_status_of_operation(isDone, list);
       break;
 
     case 'b':
       printf("Enter the number to insert at the starting of the list\n");
       scanf("%d", &number);
       isDone = add_to_start(list, number);
-      print_status_of_operation(isDone, list);
       break;
 
     case 'c':
       printf("Enter the position and number to insert into the list\n");
       scanf("%d%d", &position, &number);
       isDone = insert_at(list, number, position);
-      print_status_of_operation(isDone, list);
       break;
 
     case 'd':
       printf("Enter the number to insert into the list\n");
       scanf("%d", &number);
       isDone = add_unique(list, number);
-      print_status_of_operation(isDone, list);
+      break;
+
+    case 'e':
+      isDone = remove_from_start(list);
       break;
 
     default:
       printf("Enter a valid option\n");
   }
+
+  print_status_of_operation(isDone, list);
 }
 
   
