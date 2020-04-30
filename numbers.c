@@ -25,7 +25,7 @@ void print_status_of_operation(Status isDone, List_ptr list) {
 
 void perform_operation(int option, List_ptr list) {
   Status isDone;
-  int number;
+  int number, position;
 
   switch (option)
   {
@@ -42,10 +42,17 @@ void perform_operation(int option, List_ptr list) {
       isDone = add_to_start(list, number);
       print_status_of_operation(isDone, list);
       break;
+
+    case 'c':
+      printf("Enter the position and number to insert into the list\n");
+      scanf("%d%d", &position, &number);
+      isDone = insert_at(list, number, position);
+      print_status_of_operation(isDone, list);
+      break;
   }
 }
 
-
+  
 int main(void) {
   char option;
   List_ptr list = create_list();
