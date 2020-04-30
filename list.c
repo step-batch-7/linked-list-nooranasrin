@@ -57,7 +57,7 @@ Status add_to_start(List_ptr list, int value) {
     list->head = new_node;
     list->last = list->head;
   } else {
-     new_node->next = list->head ;
+    new_node->next = list->head ;
     list->head = new_node;
   }
 
@@ -94,6 +94,19 @@ Status insert_at(List_ptr list, int value, int position) {
   previous->next = new_node;
   list->count++;
   return Success;
+}
+
+Status add_unique(List_ptr list, int value) {
+  Node_ptr pWalk = list->head;
+
+  while (pWalk != NULL) {
+    if(pWalk->value == value) {
+      return Failure;
+    }
+    pWalk = pWalk->next;
+  }
+
+  return add_to_end(list, value);
 }
 
 void display(List_ptr list) {

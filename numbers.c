@@ -49,6 +49,16 @@ void perform_operation(int option, List_ptr list) {
       isDone = insert_at(list, number, position);
       print_status_of_operation(isDone, list);
       break;
+
+    case 'd':
+      printf("Enter the number to insert into the list\n");
+      scanf("%d", &number);
+      isDone = add_unique(list, number);
+      print_status_of_operation(isDone, list);
+      break;
+
+    default:
+      printf("Enter a valid option\n");
   }
 }
 
