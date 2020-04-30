@@ -110,8 +110,10 @@ Status add_unique(List_ptr list, int value) {
 }
 
 Status remove_from_start(List_ptr list) {
+  Node_ptr head = list->head;
   list->head = list->head->next;
   list->count--;
+  free(head);
   return Success;
 }
 
@@ -131,6 +133,7 @@ Status remove_from_end(List_ptr list) {
   previous->next = NULL;
   list->last = previous;
   list->count--;
+  free(pWalk);
   return Success;
 }
 
@@ -155,6 +158,7 @@ Status remove_at(List_ptr list, int position) {
 
   previous->next = pWalk->next;
   list->count--;
+  free(pWalk);
   return Success;
 }
 
@@ -174,6 +178,7 @@ Status remove_first_occurrence(List_ptr list, int value) {
 
   previous->next = pWalk->next;
   list->count--;
+  free(pWalk);
   return Success;
 }
 
@@ -192,6 +197,17 @@ Status remove_all_occurrences(List_ptr list, int value) {
   return status;
 }
 
+Status clear_list(List_ptr list) {
+  Node_ptr pWalk = list->head;
+  int status;
+
+  while(pWalk != NULL) {
+    status =  remove_from_start(list);
+    pWalk = list->head;
+  }
+  return status;
+}
+
 void display(List_ptr list) {
   Node_ptr pWalk = list->head;
 
@@ -199,4 +215,9 @@ void display(List_ptr list) {
     printf("%d\n", pWalk->value);
     pWalk = pWalk->next;
   }
+}
+
+void destroy_list(List_ptr list) {
+  Status status = clear_list(list);
+  free(list);
 }

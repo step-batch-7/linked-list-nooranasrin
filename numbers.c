@@ -79,6 +79,10 @@ void perform_operation(int option, List_ptr list) {
       isDone = remove_all_occurrences(list, number);
       break;
 
+    case 'j':
+      isDone = clear_list(list);
+      break;
+
     default:
       printf("Enter a valid option\n");
   }
