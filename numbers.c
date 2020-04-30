@@ -67,6 +67,12 @@ void perform_operation(int option, List_ptr list) {
       isDone = remove_at(list, position);
       break;
 
+    case 'h':
+      printf("Enter the number to remove\n");
+      scanf("%d", &number);
+      isDone = remove_first_occurrence(list, number);
+      break;
+
     default:
       printf("Enter a valid option\n");
   }

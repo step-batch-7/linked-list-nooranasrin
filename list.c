@@ -158,6 +158,25 @@ Status remove_at(List_ptr list, int position) {
   return Success;
 }
 
+Status remove_first_occurrence(List_ptr list, int value) {
+  Node_ptr pWalk = list->head;
+  Node_ptr previous = pWalk;
+
+  if(list->head->value == value) {
+    // list->head = list->head->next;
+    return remove_from_start(list);
+  }
+
+  while (pWalk->value != value)
+  {
+    previous = pWalk;
+    pWalk = pWalk->next;
+  }
+
+  previous->next = pWalk->next;
+  return Success;
+}
+
 void display(List_ptr list) {
   Node_ptr pWalk = list->head;
 
