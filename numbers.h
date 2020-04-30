@@ -21,6 +21,6 @@
 
 void print_menu(void);
 void perform_operation(int option, List_ptr list);
-void print_status_of_operation(Status isDone, List_ptr list);
+void print_status_of_operation(Status isDone);
 
 #endif

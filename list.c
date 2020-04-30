@@ -208,6 +208,18 @@ Status clear_list(List_ptr list) {
   return status;
 }
 
+Status is_present(List_ptr list, int value) {
+  Node_ptr pWalk = list->head;
+
+  while(pWalk != NULL) {
+    if(pWalk->value == value) {
+      return Success;
+    }
+    pWalk = pWalk->next;
+  }
+  return Failure;
+}
+
 void display(List_ptr list) {
   Node_ptr pWalk = list->head;
 
