@@ -99,6 +99,10 @@ void perform_operation(int option, List_ptr list) {
       !isDone && printf("The element %d is not present in the list\n", number);
       break;
 
+    case 'l':
+      display(list);
+      break;
+
     default:
       printf("Enter a valid option\n");
   }
