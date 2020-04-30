@@ -110,9 +110,8 @@ Status add_unique(List_ptr list, int value) {
 }
 
 Status remove_from_start(List_ptr list) {
-  Node_ptr head = list->head;
   list->head = list->head->next;
-  free(head);
+  list->count--;
   return Success;
 }
 
@@ -131,7 +130,31 @@ Status remove_from_end(List_ptr list) {
 
   previous->next = NULL;
   list->last = previous;
-  free(pWalk);
+  list->count--;
+  return Success;
+}
+
+Status remove_at(List_ptr list, int position) {
+  if(position == 0) {
+    return remove_from_start(list);
+  }
+
+  if (position == list->count - 1) {
+    return remove_from_end(list);
+  }
+
+  Node_ptr pWalk = list->head;
+  Node_ptr previous = pWalk;
+  int index = 0;
+
+  while (index != position) {
+    previous = pWalk;
+    pWalk = pWalk->next;
+    index++;
+  }
+
+  previous->next = pWalk->next;
+  list->count--;
   return Success;
 }
 

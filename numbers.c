@@ -61,6 +61,12 @@ void perform_operation(int option, List_ptr list) {
       isDone = remove_from_end(list);
       break;
 
+    case 'g':
+      printf("Enter the position to delete the element\n");
+      scanf("%d", &position);
+      isDone = remove_at(list, position);
+      break;
+
     default:
       printf("Enter a valid option\n");
   }
