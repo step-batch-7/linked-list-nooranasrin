@@ -110,7 +110,28 @@ Status add_unique(List_ptr list, int value) {
 }
 
 Status remove_from_start(List_ptr list) {
+  Node_ptr head = list->head;
   list->head = list->head->next;
+  free(head);
+  return Success;
+}
+
+Status remove_from_end(List_ptr list) {
+  if(list->head->next == NULL) {
+    return remove_from_start(list);
+  }
+
+  Node_ptr pWalk = list->head;
+  Node_ptr previous = pWalk;
+
+  while (pWalk->next != NULL) {
+    previous = pWalk;
+    pWalk = pWalk->next;
+  }
+
+  previous->next = NULL;
+  list->last = previous;
+  free(pWalk);
   return Success;
 }
 

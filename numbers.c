@@ -57,6 +57,10 @@ void perform_operation(int option, List_ptr list) {
       isDone = remove_from_start(list);
       break;
 
+    case 'f':
+      isDone = remove_from_end(list);
+      break;
+
     default:
       printf("Enter a valid option\n");
   }
