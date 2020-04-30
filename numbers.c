@@ -25,13 +25,20 @@ void print_status_of_operation(Status isDone, List_ptr list) {
 void perform_operation(int option) {
   List_ptr list = create_list();
   int number;
+  Status isDone;
+
+  printf("Enter the number\n");
+  scanf("%d", &number);
 
   switch (option)
   {
     case 'a':
-      printf("Enter the number to insert into the end of the list\n");
-      scanf("%d", &number);
-      Status isDone = add_to_end(list, number);
+      isDone = add_to_end(list, number);
+      print_status_of_operation(isDone, list);
+      break;
+
+    case 'b':
+      isDone = add_to_start(list, number);
       print_status_of_operation(isDone, list);
       break;
   }
