@@ -10,10 +10,37 @@ void print_menu(void) {
   for (int index = 0; index < MENU_LENGTH; index++) {
     printf("%s\n", menu[index]);
   }
-  printf("Please enter the alphabet of the operation you would like to perform\n");
+  printf("\nPlease enter the alphabet of the operation you would like to perform\n");
+}
+
+void print_status_of_operation(Status isDone, List_ptr list) {
+  if(isDone) {
+    printf("operation performed successfully\n");
+    display(list);
+    return;
+  }
+  printf("operation can't perform\n");
+}
+
+void perform_operation(int option) {
+  List_ptr list = create_list();
+  int number;
+
+  switch (option)
+  {
+    case 'a':
+      printf("Enter the number to insert into the end of the list\n");
+      scanf("%d", &number);
+      Status isDone = add_to_end(list, number);
+      print_status_of_operation(isDone, list);
+      break;
+  }
 }
 
 int main(void) {
+  char option;
   print_menu();
+  scanf("%c", &option);
+  perform_operation(option);
   return 0;
-}
+} 

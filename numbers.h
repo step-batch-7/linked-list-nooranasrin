@@ -19,4 +19,8 @@
   "(m) exit",\
 }
 
+void print_menu(void);
+void perform_operation(int option);
+void print_status_of_operation(Status isDone, List_ptr list);
+
 #endif
