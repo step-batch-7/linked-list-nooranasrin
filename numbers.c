@@ -23,17 +23,22 @@ void print_status_of_operation(Status isDone, List_ptr list) {
   printf("operation can't perform\n");
 }
 
-void perform_operation(int option, List_ptr list, int number) {
+void perform_operation(int option, List_ptr list) {
   Status isDone;
+  int number;
 
   switch (option)
   {
     case 'a':
+      printf("Enter the number to insert at the end of the list\n");
+      scanf("%d", &number);
       isDone = add_to_end(list, number);
       print_status_of_operation(isDone, list);
       break;
 
     case 'b':
+      printf("Enter the number to insert at the starting of the list\n");
+      scanf("%d", &number);
       isDone = add_to_start(list, number);
       print_status_of_operation(isDone, list);
       break;
@@ -44,15 +49,12 @@ void perform_operation(int option, List_ptr list, int number) {
 int main(void) {
   char option;
   List_ptr list = create_list();
-  int number;
 
   print_menu();
   scanf(" %c", &option);
 
   while (option != 'm') {
-    printf("Enter the number\n");
-    scanf("%d", &number);
-    perform_operation(option, list, number);
+    perform_operation(option, list);
     print_menu();
     scanf(" %c", &option);
   }

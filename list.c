@@ -54,7 +54,7 @@ Status add_to_start(List_ptr list, int value) {
   }
 
   if(list->head != NULL) {
-    new_node->next = list->head;
+    new_node->next = list->head ;
   }
 
   list->head = new_node;
