@@ -163,7 +163,6 @@ Status remove_first_occurrence(List_ptr list, int value) {
   Node_ptr previous = pWalk;
 
   if(list->head->value == value) {
-    // list->head = list->head->next;
     return remove_from_start(list);
   }
 
@@ -174,7 +173,23 @@ Status remove_first_occurrence(List_ptr list, int value) {
   }
 
   previous->next = pWalk->next;
+  list->count--;
   return Success;
+}
+
+Status remove_all_occurrences(List_ptr list, int value) {
+  Node_ptr pWalk = list->head;
+  int status;
+
+  while(pWalk != NULL) {
+    if(pWalk->value == value) {
+      status =  remove_first_occurrence(list, value);
+      pWalk = list->head;
+    } else {
+      pWalk = pWalk->next;
+    }
+  }
+  return status;
 }
 
 void display(List_ptr list) {
