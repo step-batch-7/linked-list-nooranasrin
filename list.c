@@ -70,7 +70,7 @@ Status insert_at(List_ptr list, int value, int position) {
     return Failure;
   }
 
-  if(position == 1) {
+  if(position == 0) {
     return add_to_start(list, value);
   }
 
