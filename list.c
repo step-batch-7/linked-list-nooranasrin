@@ -121,6 +121,10 @@ Status remove_from_start(List_ptr list) {
 }
 
 Status remove_from_end(List_ptr list) {
+  if(list->count ==0) {
+    return Failure;
+  }
+  
   if(list->head->next == NULL) {
     return remove_from_start(list);
   }
