@@ -5,5 +5,6 @@
 int main(void) {
   run_Tests_For_add_to_end();
   run_Tests_For_add_to_start();
+  run_Tests_For_insert_at();
   return 0;
 }

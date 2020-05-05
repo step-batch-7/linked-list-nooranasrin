@@ -8,7 +8,8 @@ void assert_equal(int expectedValue, int actualValue, char *message) {
   if(expectedValue !=actualValue ) {
     char error_symbol[] = "❌";
     char errorMessage[] = "failing\n";
-    printf("%s %s",symbol, errorMessage);
+    printf("%s %s",error_symbol, errorMessage);
+    return;
   }
 
   printf("%s %s",symbol, message);
@@ -57,5 +58,21 @@ void run_Tests_For_add_to_start() {
   printf("--------- add_to_start---------\n");
   test_empty_list_for_add_to_start();
   test_long_list_for_add_to_start();
+  printf("\n");
+}
+
+void test_invalid_position() {
+  char description[] = "should give Failure when the position is not valid\n";
+  List_ptr list = create_list();
+  Status actual = insert_at(list, 5, 3);
+  assert_equal(0, actual, description);
+
+  actual = insert_at(list, 5, -3);
+  assert_equal(0, actual, description);
+}
+
+void run_Tests_For_insert_at() {
+  printf("--------- insert_at---------\n");
+  test_invalid_position();
   printf("\n");
 }
