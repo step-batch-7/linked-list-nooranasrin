@@ -112,7 +112,7 @@ Status remove_from_start(List_ptr list) {
   if(list->count ==0) {
     return Failure;
   }
-  
+
   Node_ptr head = list->head;
   list->head = list->head->next;
   list->count--;
@@ -141,6 +141,10 @@ Status remove_from_end(List_ptr list) {
 }
 
 Status remove_at(List_ptr list, int position) {
+  if(position > list->count - 1) {
+    return Failure;
+  }
+
   if(position == 0) {
     return remove_from_start(list);
   }
