@@ -31,7 +31,7 @@ void test_long_list_for_add_to_end() {
   assert_equal(1, actual, description);
 }
 
-void run_Tests_For_add_to_end() {
+void run_tests_for_add_to_end() {
   printf("--------- add_to_end---------\n");
   test_empty_list_for_add_to_end();
   test_long_list_for_add_to_end();
@@ -54,7 +54,7 @@ void test_long_list_for_add_to_start() {
   assert_equal(1, actual, description);
 }
 
-void run_Tests_For_add_to_start() {
+void run_tests_for_add_to_start() {
   printf("--------- add_to_start---------\n");
   test_empty_list_for_add_to_start();
   test_long_list_for_add_to_start();
@@ -95,11 +95,36 @@ void test_add_to_middle() {
   assert_equal(1, actual, description);
 }
 
-void run_Tests_For_insert_at() {
+void run_tests_for_insert_at() {
   printf("--------- insert_at---------\n");
   test_invalid_position_for_insert_at();
   test_position_0_for_insert_at();
   test_add_to_end_for_insert_at();
   test_add_to_middle();
+  printf("\n");
+}
+
+void test_add_unique_element() {
+  char description[] = "should add the element into the end of the list when the element is not existing\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = add_unique(list, 5);
+  assert_equal(1, actual, description);
+}
+
+void test_existing_element_for_add_unique_element() {
+  char description[] = "should not add the element into list when the element is existing\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = add_unique(list, 1);
+  assert_equal(0, actual, description);
+}
+
+void run_tests_for_add_unique() {
+  printf("---------add_unique---------\n");
+  test_add_unique_element();
+  test_existing_element_for_add_unique_element();
   printf("\n");
 }

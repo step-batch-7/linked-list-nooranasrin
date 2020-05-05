@@ -3,8 +3,9 @@
 #include "../list.h"
 
 int main(void) {
-  run_Tests_For_add_to_end();
-  run_Tests_For_add_to_start();
-  run_Tests_For_insert_at();
+  run_tests_for_add_to_end();
+  run_tests_for_add_to_start();
+  run_tests_for_insert_at();
+  run_tests_for_add_unique();
   return 0;
 }
