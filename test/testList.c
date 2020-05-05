@@ -34,4 +34,28 @@ void run_Tests_For_add_to_end() {
   printf("--------- add_to_end---------\n");
   test_empty_list_for_add_to_end();
   test_long_list_for_add_to_end();
+  printf("\n");
+}
+
+void test_empty_list_for_add_to_start() {
+  char description[] = "should add to the 0th position of an empty list\n";
+  List_ptr list = create_list();
+  Status actual = add_to_start(list, 5);
+  assert_equal(1, actual, description);
+}
+
+void test_long_list_for_add_to_start() {
+  char description[] = "should add to the start of a long list\n";
+  List_ptr list = create_list();
+  add_to_end(list, 1);
+  add_to_end(list, 2);
+  Status actual = add_to_start(list, 5);
+  assert_equal(1, actual, description);
+}
+
+void run_Tests_For_add_to_start() {
+  printf("--------- add_to_start---------\n");
+  test_empty_list_for_add_to_start();
+  test_long_list_for_add_to_start();
+  printf("\n");
 }
