@@ -185,16 +185,19 @@ Status remove_first_occurrence(List_ptr list, int value) {
     return remove_from_start(list);
   }
 
-  while (pWalk->value != value)
+  while (pWalk != NULL)
   {
     previous = pWalk;
     pWalk = pWalk->next;
+    if(pWalk != NULL && pWalk->value == value) {
+      previous->next = pWalk->next;
+      list->count--;
+      free(pWalk);
+      return Success;
+    }
   }
 
-  previous->next = pWalk->next;
-  list->count--;
-  free(pWalk);
-  return Success;
+  return Failure;
 }
 
 Status remove_all_occurrences(List_ptr list, int value) {
