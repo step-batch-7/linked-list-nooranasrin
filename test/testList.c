@@ -61,18 +61,45 @@ void run_Tests_For_add_to_start() {
   printf("\n");
 }
 
-void test_invalid_position() {
+void test_invalid_position_for_insert_at() {
   char description[] = "should give Failure when the position is not valid\n";
   List_ptr list = create_list();
   Status actual = insert_at(list, 5, 3);
   assert_equal(0, actual, description);
-
   actual = insert_at(list, 5, -3);
   assert_equal(0, actual, description);
 }
 
+void test_position_0_for_insert_at() {
+  char description[] = "should add the element into the 0th position when the position is 0\n";
+  List_ptr list = create_list();
+  Status actual = insert_at(list, 5, 0);
+  assert_equal(1, actual, description);
+}
+
+void test_add_to_end_for_insert_at() {
+  char description[] = "should add the element into the end of the list when the position is equal to the length of the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = insert_at(list, 5, 2);
+  assert_equal(1, actual, description);
+}
+
+void test_add_to_middle() {
+  char description[] = "should add to the middle of the list when the position is in between 0 and length of the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = insert_at(list, 5, 1);
+  assert_equal(1, actual, description);
+}
+
 void run_Tests_For_insert_at() {
   printf("--------- insert_at---------\n");
-  test_invalid_position();
+  test_invalid_position_for_insert_at();
+  test_position_0_for_insert_at();
+  test_add_to_end_for_insert_at();
+  test_add_to_middle();
   printf("\n");
 }
