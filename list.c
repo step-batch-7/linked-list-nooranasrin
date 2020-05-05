@@ -109,6 +109,10 @@ Status add_unique(List_ptr list, int value) {
 }
 
 Status remove_from_start(List_ptr list) {
+  if(list->count ==0) {
+    return Failure;
+  }
+  
   Node_ptr head = list->head;
   list->head = list->head->next;
   list->count--;
