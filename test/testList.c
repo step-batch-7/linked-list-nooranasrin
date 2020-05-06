@@ -87,7 +87,7 @@ void test_add_to_end_for_insert_at() {
 }
 
 void test_add_to_middle() {
-  char description[] = "should add to the middle of the list when the position is in between 0 and length of the list\n";
+  char description[] = "should add to the list when the position is in between 0 and length of the list\n";
   List_ptr list = create_list();
   add_to_start(list , 1);
   add_to_start(list, 2);
@@ -180,5 +180,48 @@ void run_tests_for_remove_from_end() {
   test_remove_from_empty_list_for_remove_from_end();
   test_remove_from_long_list_for_remove_from_end();
   test_remove_from_a_single_elment_list();
+  printf("\n");
+}
+
+void test_invalid_position_for_remove_at() {
+  char description[] = "should give Failure when the position is not valid\n";
+  List_ptr list = create_list();
+  Status actual = remove_at(list, 5);
+  assert_equal(0, actual, description);
+  actual = remove_at(list, -3);
+  assert_equal(0, actual, description);
+}
+
+void test_position_0_for_remove_at() {
+  char description[] = "should remove the 0th element when the position is 0\n";
+  List_ptr list = create_list();
+  Status actual = remove_at(list, 0);
+  assert_equal(1, actual, description);
+}
+
+void test_add_to_end_for_remove_at() {
+  char description[] = "should remove the element from the end of the list when the position is equal to the length of the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = remove_at(list, 1);
+  assert_equal(1, actual, description);
+}
+
+void test_add_to_middle_for_remove_at() {
+  char description[] = "should remove the element when the position is in between 0 and length of the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = remove_at(list, 1);
+  assert_equal(1, actual, description);
+}
+
+void run_tests_for_remove_at() {
+  printf("--------- remove_at---------\n");
+  test_invalid_position_for_insert_at();
+  test_position_0_for_insert_at();
+  test_add_to_end_for_insert_at();
+  test_add_to_middle_for_remove_at();
   printf("\n");
 }

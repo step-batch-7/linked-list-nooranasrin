@@ -20,5 +20,13 @@ void run_tests_for_remove_from_start();
 void test_remove_from_empty_list_for_remove_from_start();
 void test_remove_from_long_list_for_remove_from_start();
 void run_tests_for_remove_from_end();
+void test_remove_from_empty_list_for_remove_from_end();
+void test_remove_from_long_list_for_remove_from_end();
+void test_remove_from_a_single_elment_list();
+void test_invalid_position_for_remove_at();
+void test_position_0_for_remove_at();
+void test_add_to_end_for_remove_at();
+void test_add_to_middle_for_remove_at();
+void run_tests_for_remove_at();
 
 #endif
