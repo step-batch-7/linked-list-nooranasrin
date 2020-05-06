@@ -128,3 +128,25 @@ void run_tests_for_add_unique() {
   test_existing_element_for_add_unique_element();
   printf("\n");
 }
+
+void test_remove_from_empty_list_for_remove_from_start() {
+  char description[] = "should give failure when the list is empty\n";
+  List_ptr list = create_list();
+  Status actual = remove_from_start(list);
+  assert_equal(0, actual, description);
+}
+
+void test_remove_from_long_list_for_remove_from_start() {
+  char description[] = "should give success when the list is not empty\n";
+  List_ptr list = create_list();
+  add_to_end(list, 1);
+  Status actual = remove_from_start(list);
+  assert_equal(1, actual, description);
+}
+
+void run_tests_for_remove_from_start() {
+  printf("---------remove_from_start---------\n");
+  test_remove_from_empty_list_for_remove_from_start();
+  test_remove_from_long_list_for_remove_from_start();
+  printf("\n");
+}

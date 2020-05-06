@@ -16,5 +16,6 @@ void test_add_to_middle();
 void run_tests_for_insert_at();
 void test_add_unique_element();
 void run_tests_for_add_unique();
+void run_tests_for_remove_from_start();
 
 #endif

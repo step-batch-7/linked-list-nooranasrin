@@ -113,7 +113,7 @@ Status add_unique(List_ptr list, int value) {
 }
 
 Status remove_from_start(List_ptr list) {
-  if(list->count ==0) {
+  if(list->count == 0) {
     return Failure;
   }
 
