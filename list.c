@@ -202,7 +202,7 @@ Status remove_first_occurrence(List_ptr list, int value) {
 
 Status remove_all_occurrences(List_ptr list, int value) {
   Node_ptr pWalk = list->head;
-  int status;
+  int status = Failure;
 
   while(pWalk != NULL) {
     if(pWalk->value == value) {

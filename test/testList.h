@@ -29,5 +29,9 @@ void test_add_to_end_for_remove_at();
 void test_add_to_middle_for_remove_at();
 void run_tests_for_remove_at();
 void run_tests_for_remove_first_occurrence();
+void test_non_existing_element();
+void test_single_occurrence();
+void test_multiple_occurrence();
+void run_tests_for_remove_all_occurrences();
 
 #endif
