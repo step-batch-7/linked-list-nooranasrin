@@ -150,3 +150,35 @@ void run_tests_for_remove_from_start() {
   test_remove_from_long_list_for_remove_from_start();
   printf("\n");
 }
+
+void test_remove_from_empty_list_for_remove_from_end() {
+  char description[] = "should give failure when the list is empty\n";
+  List_ptr list = create_list();
+  Status actual = remove_from_end(list);
+  assert_equal(0, actual, description);
+}
+
+void test_remove_from_long_list_for_remove_from_end() {
+  char description[] = "should give success when the list is not empty\n";
+  List_ptr list = create_list();
+  add_to_end(list, 1);
+  add_to_end(list, 2);
+  Status actual = remove_from_end(list);
+  assert_equal(1, actual, description);
+}
+  
+void test_remove_from_a_single_elment_list() {
+  char description[] = "should remove from start when the list contains only one element\n";
+  List_ptr list = create_list();
+  add_to_end(list, 1);
+  Status actual = remove_from_end(list);
+  assert_equal(1, actual, description);
+}
+
+void run_tests_for_remove_from_end() {
+  printf("---------remove_from_end---------\n");
+  test_remove_from_empty_list_for_remove_from_end();
+  test_remove_from_long_list_for_remove_from_end();
+  test_remove_from_a_single_elment_list();
+  printf("\n");
+}

@@ -17,5 +17,8 @@ void run_tests_for_insert_at();
 void test_add_unique_element();
 void run_tests_for_add_unique();
 void run_tests_for_remove_from_start();
+void test_remove_from_empty_list_for_remove_from_start();
+void test_remove_from_long_list_for_remove_from_start();
+void run_tests_for_remove_from_end();
 
 #endif
