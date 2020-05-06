@@ -5,9 +5,9 @@
 void assert_equal(int expectedValue, int actualValue, char *message) {
   char symbol[] = "✅";
 
-  if(expectedValue !=actualValue ) {
+  if(expectedValue != actualValue ) {
     char error_symbol[] = "❌";
-    printf("%s %s",error_symbol, message);
+    printf("%s %s  * Expected -> %d\n  * Got -> %d\n",error_symbol, message, expectedValue, actualValue);
     return;
   }
 
