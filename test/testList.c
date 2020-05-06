@@ -285,3 +285,14 @@ void run_tests_for_remove_all_occurrences() {
   test_multiple_occurrance_for_remove_all_occurrences();
   printf("\n");
 }
+
+void run_tests_for_clear_list() {
+  printf("---------clear_list---------\n");
+  char description[] = "should clear the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 1);
+  Status actual = clear_list(list);
+  assert_equal(1, actual, description);
+  printf("\n");
+}

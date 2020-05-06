@@ -12,5 +12,6 @@ int main(void) {
   run_tests_for_remove_at();
   run_tests_for_remove_first_occurrence();
   run_tests_for_remove_all_occurrences();
+  run_tests_for_clear_list();
   return 0;
 }
