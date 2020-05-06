@@ -7,8 +7,7 @@ void assert_equal(int expectedValue, int actualValue, char *message) {
 
   if(expectedValue !=actualValue ) {
     char error_symbol[] = "❌";
-    char errorMessage[] = "failing\n";
-    printf("%s %s",error_symbol, errorMessage);
+    printf("%s %s",error_symbol, message);
     return;
   }
 
@@ -294,5 +293,28 @@ void run_tests_for_clear_list() {
   add_to_start(list, 1);
   Status actual = clear_list(list);
   assert_equal(1, actual, description);
+  printf("\n");
+}
+  
+void test_existing_element() {
+  char description[] = "should give Success when the element is present in the list\n";
+  List_ptr list = create_list();
+  add_to_start(list, 2);
+  Status actual = is_present(list, 2);
+  assert_equal(1, actual, description);
+}
+
+void test_non_existing_element_for_is_present() {
+  char description[] = "should give Failure when the element is not present in the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  Status actual = is_present(list, 3);
+  assert_equal(0, actual, description);
+}
+
+void run_tests_for_is_present() {
+  printf("---------is_present---------\n");
+  test_existing_element();
+  test_non_existing_element_for_is_present();
   printf("\n");
 }

@@ -36,5 +36,8 @@ void run_tests_for_remove_all_occurrences();
 void test_non_existing_element_for_remove_all_occurrences();
 void test_multiple_occurrance_for_remove_all_occurrences();
 void run_tests_for_clear_list();
+void run_tests_for_is_present();
+void test_existing_element();
+void test_non_existing_element_for_is_present();
 
 #endif
