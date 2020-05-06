@@ -28,5 +28,6 @@ void test_position_0_for_remove_at();
 void test_add_to_end_for_remove_at();
 void test_add_to_middle_for_remove_at();
 void run_tests_for_remove_at();
+void run_tests_for_remove_first_occurrence();
 
 #endif

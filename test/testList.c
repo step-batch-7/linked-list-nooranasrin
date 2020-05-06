@@ -225,3 +225,38 @@ void run_tests_for_remove_at() {
   test_add_to_middle_for_remove_at();
   printf("\n");
 }
+
+void test_non_existing_element() {
+  char description[] = "should give false when the element is not existing in the list\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = remove_first_occurrence(list, 5);
+  assert_equal(0, actual, description);
+}
+  
+void test_single_occurrence() {
+  char description[] = "should remove the element when the list containing that element only once\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 2);
+  Status actual = remove_first_occurrence(list, 1);
+  assert_equal(1, actual, description);
+}
+
+void test_multiple_occurrence() {
+  char description[] = "should remove the first occurrence of the element when the list containing that element more than once\n";
+  List_ptr list = create_list();
+  add_to_start(list , 1);
+  add_to_start(list, 1);
+  Status actual = remove_first_occurrence(list, 1);
+  assert_equal(1, actual, description);
+}
+
+void run_tests_for_remove_first_occurrence() {
+  printf("--------- remove_first_occurrence---------\n");
+  test_non_existing_element();
+  test_single_occurrence();
+  test_multiple_occurrence();
+  printf("\n");
+}
