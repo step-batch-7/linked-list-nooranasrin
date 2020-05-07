@@ -2,18 +2,6 @@
 #include "../list.h"
 #include "testList.h"
 
-void assert_equal(int expectedValue, int actualValue, char *message) {
-  char symbol[] = "✅";
-
-  if(expectedValue != actualValue ) {
-    char error_symbol[] = "❌";
-    printf("%s %s  * Expected -> %d\n  * Got -> %d\n",error_symbol, message, expectedValue, actualValue);
-    return;
-  }
-
-  printf("%s %s",symbol, message);
-}
-
 void test_empty_list_for_add_to_end() {
   char description[] = "should add to the 0th position of an empty list\n";
   List_ptr list = create_list();
